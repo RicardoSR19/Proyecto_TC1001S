@@ -1,5 +1,4 @@
 from turtle import *
-
 from freegames import line
 
 
@@ -13,16 +12,25 @@ def grid():
 
 def drawx(x, y):
     """Draw X player."""
-    line(x, y, x + 133, y + 133)
-    line(x, y + 133, x + 133, y)
+    #Change colo to red
+    color('red')
+    #Change thickness of lines
+    width(4)
+    line(x+33, y+33, x + 100, y + 100)
+    line(x+33, y + 100, x + 100, y+33)
 
 
 def drawo(x, y):
     """Draw O player."""
+    #Change color to blue
+    color('blue')
+    #Change thickness of circle
+    width(5)
     up()
-    goto(x + 67, y + 5)
+    goto(x + 67, y + 26)
     down()
-    circle(62)
+    #Change size of the circle
+    circle(40)
 
 
 def floor(value):
