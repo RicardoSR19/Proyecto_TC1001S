@@ -1,6 +1,8 @@
 from turtle import *
 from freegames import line
 
+#Create a matrix to represent the state of the game (0 for empty square, 1 for X, 2 for O).
+board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
 def grid():
     """Draw tic-tac-toe grid."""
@@ -47,10 +49,17 @@ def tap(x, y):
     x = floor(x)
     y = floor(y)
     player = state['player']
-    draw = players[player]
-    draw(x, y)
-    update()
-    state['player'] = not player
+
+    #Check if the box is empty
+    row = int((y + 200) / 133)
+    col = int((x + 200) / 133)
+
+    if board[row][col] == 0:
+        draw = players[player]
+        draw(x, y)
+        update()
+        board[row][col] = player + 1  #Update game status
+        state['player'] = not player
 
 
 setup(420, 420, 370, 0)
