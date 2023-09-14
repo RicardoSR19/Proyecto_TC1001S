@@ -1,3 +1,8 @@
+//  Arles Guevara Molina      A01710380
+//  14/09/2023
+
+// Se cargan las  siguientes librerias:
+
 from random import choice
 from turtle import *
 from freegames import floor, vector
@@ -72,8 +77,8 @@ def valid(point):
 
 def world():
     "Draw world using path."
-    bgcolor('black')
-    path.color('blue')
+    bgcolor('green')
+    path.color('orange')
 
     for index in range(len(tiles)):
         tile = tiles[index]
