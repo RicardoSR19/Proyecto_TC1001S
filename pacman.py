@@ -1,7 +1,7 @@
 //  Arles Guevara Molina      A01710380
 //  14/09/2023
 
-// Se cargan las  siguientes librerias:
+// Here we charge the library 
 
 from random import choice
 from turtle import *
@@ -76,7 +76,7 @@ def valid(point):
     return point.x % 20 == 0 or point.y % 20 == 0
 
 def world():
-    "Draw world using path."
+    "Draw world using path and change the colors"
     bgcolor('green')
     path.color('orange')
 
@@ -139,7 +139,8 @@ def move():
     for point, course in ghosts:
         if abs(pacman - point) < 20:
             return
-
+"Here is the frecuency that we call the function move"
+"thats meaning that the gost can go more faster"
     ontimer(move, 50)
 
 def change(x, y):
