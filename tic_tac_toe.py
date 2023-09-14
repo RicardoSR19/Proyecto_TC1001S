@@ -1,6 +1,12 @@
-from turtle import *
-
+from turtle import (
+    color, width, up, goto, down, circle, setup,
+    hideturtle, tracer, update, onscreenclick, done
+)
 from freegames import line
+
+# Create a matrix to represent the state of
+# the game (0 for empty square, 1 for X, 2 for O).
+board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
 
 def grid():
@@ -13,16 +19,25 @@ def grid():
 
 def drawx(x, y):
     """Draw X player."""
-    line(x, y, x + 133, y + 133)
-    line(x, y + 133, x + 133, y)
+    # Change color to red
+    color('red')
+    # Change thickness of lines
+    width(4)
+    line(x+33, y+33, x + 100, y + 100)  # Change size of symbol
+    line(x+33, y + 100, x + 100, y+33)  # Change size of symbol
 
 
 def drawo(x, y):
     """Draw O player."""
+    # Change color to blue
+    color('blue')
+    # Change thickness of circle
+    width(5)
     up()
-    goto(x + 67, y + 5)
+    goto(x + 67, y + 26)
     down()
-    circle(62)
+    # Change size of the circle
+    circle(40)
 
 
 def floor(value):
@@ -39,10 +54,17 @@ def tap(x, y):
     x = floor(x)
     y = floor(y)
     player = state['player']
-    draw = players[player]
-    draw(x, y)
-    update()
-    state['player'] = not player
+
+    # Check if the box is empty
+    row = int((y + 200) / 133)
+    col = int((x + 200) / 133)
+
+    if board[row][col] == 0:  # Condition for drawing
+        draw = players[player]
+        draw(x, y)
+        update()
+        board[row][col] = player + 1  # Update game status
+        state['player'] = not player
 
 
 setup(420, 420, 370, 0)
