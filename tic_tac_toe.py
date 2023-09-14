@@ -19,12 +19,12 @@ def grid():
 
 def drawx(x, y):
     """Draw X player."""
-    # Change colo to red
+    # Change color to red
     color('red')
     # Change thickness of lines
     width(4)
-    line(x+33, y+33, x + 100, y + 100)
-    line(x+33, y + 100, x + 100, y+33)
+    line(x+33, y+33, x + 100, y + 100)  # Change size of symbol
+    line(x+33, y + 100, x + 100, y+33)  # Change size of symbol
 
 
 def drawo(x, y):
@@ -59,7 +59,7 @@ def tap(x, y):
     row = int((y + 200) / 133)
     col = int((x + 200) / 133)
 
-    if board[row][col] == 0:
+    if board[row][col] == 0:  # Condition for drawing
         draw = players[player]
         draw(x, y)
         update()
