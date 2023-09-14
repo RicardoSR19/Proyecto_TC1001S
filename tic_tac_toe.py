@@ -1,8 +1,13 @@
-from turtle import *
+from turtle import (
+    color, width, up, goto, down, circle, setup,
+    hideturtle, tracer, update, onscreenclick, done
+)
 from freegames import line
 
-#Create a matrix to represent the state of the game (0 for empty square, 1 for X, 2 for O).
+# Create a matrix to represent the state of
+# the game (0 for empty square, 1 for X, 2 for O).
 board = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+
 
 def grid():
     """Draw tic-tac-toe grid."""
@@ -14,9 +19,9 @@ def grid():
 
 def drawx(x, y):
     """Draw X player."""
-    #Change colo to red
+    # Change colo to red
     color('red')
-    #Change thickness of lines
+    # Change thickness of lines
     width(4)
     line(x+33, y+33, x + 100, y + 100)
     line(x+33, y + 100, x + 100, y+33)
@@ -24,14 +29,14 @@ def drawx(x, y):
 
 def drawo(x, y):
     """Draw O player."""
-    #Change color to blue
+    # Change color to blue
     color('blue')
-    #Change thickness of circle
+    # Change thickness of circle
     width(5)
     up()
     goto(x + 67, y + 26)
     down()
-    #Change size of the circle
+    # Change size of the circle
     circle(40)
 
 
@@ -50,7 +55,7 @@ def tap(x, y):
     y = floor(y)
     player = state['player']
 
-    #Check if the box is empty
+    # Check if the box is empty
     row = int((y + 200) / 133)
     col = int((x + 200) / 133)
 
@@ -58,7 +63,7 @@ def tap(x, y):
         draw = players[player]
         draw(x, y)
         update()
-        board[row][col] = player + 1  #Update game status
+        board[row][col] = player + 1  # Update game status
         state['player'] = not player
 
 
