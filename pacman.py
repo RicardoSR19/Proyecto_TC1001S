@@ -1,10 +1,14 @@
+from random import choice
+from turtle import (
+    Turtle, bgcolor, clear, up, goto, dot, update,
+    ontimer, setup, hideturtle, tracer, listen, 
+    onkey, done
+)
+from freegames import floor, vector
+
 "Arles Guevara Molina A01710380"
 "14/09/2023"
 "Here we charge the library"
-
-from random import choice
-from turtle import *
-from freegames import floor, vector
 
 state = {'score': 0}
 path = Turtle(visible=False)
@@ -40,6 +44,7 @@ tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 ]
 
+
 def square(x, y):
     "Draw square using path at (x, y)."
     path.up()
@@ -53,12 +58,14 @@ def square(x, y):
 
     path.end_fill()
 
+
 def offset(point):
     "Return offset of point in tiles."
     x = (floor(point.x, 20) + 200) / 20
     y = (180 - floor(point.y, 20)) / 20
     index = int(x + y * 20)
     return index
+
 
 def valid(point):
     "Return True if point is valid in tiles."
@@ -73,6 +80,7 @@ def valid(point):
         return False
 
     return point.x % 20 == 0 or point.y % 20 == 0
+
 
 def world():
     "Draw world using path and change the colors"
@@ -91,6 +99,7 @@ def world():
                 path.up()
                 path.goto(x + 10, y + 10)
                 path.dot(2, 'white')
+
 
 def move():
     "Move pacman and all ghosts."
@@ -138,15 +147,17 @@ def move():
     for point, course in ghosts:
         if abs(pacman - point) < 20:
             return
-"Here is the frecuency that we call the function move"
-"thats meaning that the gost can go more faster"
+    "Here is the frecuency that we call the function move"
+    "thats meaning that the gost can go more faster"
     ontimer(move, 50)
+
 
 def change(x, y):
     "Change pacman aim if valid."
     if valid(pacman + vector(x, y)):
         aim.x = x
         aim.y = y
+
 
 setup(420, 420, 370, 0)
 hideturtle()
