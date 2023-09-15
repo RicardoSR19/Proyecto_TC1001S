@@ -6,6 +6,8 @@ car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
+# Global variable to keep track of the number of "taps".
+tap_count = 0
 
 def square(x, y):
     "Draw white square with black outline at (x, y)."
@@ -29,6 +31,8 @@ def xy(count):
 
 def tap(x, y):
     "Update mark and hidden tiles based on tap."
+    global tap_count  # Access the global tap_count variable
+    tap_count += 1    # Increases the taps counter
     spot = index(x, y)
     mark = state['mark']
 
@@ -38,6 +42,13 @@ def tap(x, y):
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
+
+def draw_tap_count():
+    "Draw the tap count on the screen."
+    up()
+    goto(-180, 180)  # Position to display the number
+    color('black')
+    write(f'Taps: {tap_count}', font=('Arial', 16, 'normal'))
 
 def draw():
     "Draw image and tiles."
@@ -59,7 +70,8 @@ def draw():
         goto(x + 2, y)
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
-
+    
+    draw_tap_count()  # Call the function to display the number of taps.
     update()
     ontimer(draw, 100)
 
