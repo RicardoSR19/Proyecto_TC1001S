@@ -73,7 +73,20 @@ def draw():
     
     draw_tap_count()  # Call the function to display the number of taps.
     update()
+
+    if all_tiles_uncovered():
+        up()
+        goto(-100, -20)  # Position to display the message
+        color('black')
+        write('¡Has ganado!', font=('Arial', 24, 'bold'))
+
+
     ontimer(draw, 100)
+
+def all_tiles_uncovered():
+    "Check if all tiles have been uncovered."
+    return all(not hidden for hidden in hide)
+
 
 shuffle(tiles)
 setup(420, 420, 370, 0)
