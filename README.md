@@ -1,5 +1,6 @@
 # Proyecto_TC1001S
 
-Pacman - Arles 
-<br>Tic Tac Toe - Ricardo
-<br>Memoria - Ernesto 
+## Juego - Alumno - ID Github
+Pacman - Arles - ArlesMolina
+<br>Tic Tac Toe - Ricardo - ricky0919
+<br>Memoria - Ernesto - ETERNALCODER0 
