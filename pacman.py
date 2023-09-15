@@ -1,7 +1,6 @@
-//  Arles Guevara Molina      A01710380
-//  14/09/2023
-
-// Here we charge the library 
+"Arles Guevara Molina A01710380"
+"14/09/2023"
+"Here we charge the library"
 
 from random import choice
 from turtle import *
